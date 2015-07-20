@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    Enrollment page
+{% else %}
+       <p> {% trans "Already have an account" %}? <a href="{% url 'auth_login' %}">{% trans "Log in" %}</a> </p>
+   <p> {% trans "Not a member" %}? 
+    <a href="{% url 'registration_register' %}">{% trans "Sign up" %}</a>
+    {% trans "first before enrolling" %}</p>
+
+{% endif %}
+{% endblock %}
